@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "866311357123",
+    "firebase_url": "https://mymedan01.firebaseio.com",
+    "project_id": "mymedan01",
+    "storage_bucket": "mymedan01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:866311357123:android:c539b312c157eb76259876",
+        "android_client_info": {
+          "package_name": "com.example.mymedan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "866311357123-i7l1cgn6eplaftm3g1lkgpa7dpgaceh4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mymedan",
+            "certificate_hash": "6cbd86a3e4e424074e8dabd5768b3632e0e77d34"
+          }
+        },
+        {
+          "client_id": "866311357123-10ltq9dnknh175k73pv0gps4ag5c600k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyMdB3pbCUY3rhK-t_5v4G1YLu9BLAUno"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "866311357123-10ltq9dnknh175k73pv0gps4ag5c600k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

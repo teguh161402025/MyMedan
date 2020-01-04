@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#EAEEEC"
+    >
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="230dp">
+
+        <ImageView
+            android:id="@+id/citybackg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/citybackg"
+
+            android:layout_marginTop="100dp"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Laporkan keluhan anda \n Untuk kota anda yang lebih baik"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/segoe_ui"
+            android:textStyle="bold"
+            android:layout_marginTop="-50dp"
+            android:textColor="#12977C"
+            android:textAlignment="center"/>
+    </androidx.cardview.widget.CardView>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="240dp"
+    android:padding="12dp"
+
+>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnlaporkan"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+
+            >
+        <ImageView
+            android:id="@+id/laporkan_img"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_record_voice_over_black_24dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/segoeui_bold"
+                android:text="Laporkan Keluhan Anda"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:textColor="#000"
+                android:textSize="18dp"  />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/button_inbox"
+        android:layout_width="match_parent"
+
+        android:layout_height="65dp"
+        android:layout_marginTop="12dp"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+
+            >
+            <ImageView
+                android:id="@+id/inbox_img"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_move_to_inbox_black_24dp" />
+
+            <TextView
+                android:id="@+id/inbox_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/segoeui_bold"
+                android:text="Inbox"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:textColor="#000"
+                android:textSize="18dp"  />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/button_help"
+        android:layout_width="match_parent"
+
+        android:layout_height="65dp"
+        android:layout_marginTop="12dp"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+
+            >
+            <ImageView
+                android:id="@+id/help_img"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_help_black_24dp" />
+
+            <TextView
+                android:id="@+id/help_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/segoeui_bold"
+                android:text="bantuan"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:textColor="#000"
+                android:textSize="18dp"  />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>
+
+
+</RelativeLayout>

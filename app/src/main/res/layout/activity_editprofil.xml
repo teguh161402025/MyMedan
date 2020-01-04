@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Editprofil"
+    android:background="#ffffffff"
+
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+
+       >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/edit_imguser"
+
+
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/edit_photoprofil"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/segoeui_bold"
+            android:text="Ganti Foto Profil "
+            android:textColor="@color/colorPrimary"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_imguser">
+
+        </TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nama"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/segoe_ui"
+        android:textSize="14dp"
+        ></TextView>
+    <EditText
+        android:id="@+id/edit_namauser"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffff"
+        android:maxLength="500"
+        android:textSize="20dp"/>
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary">
+
+    </TableRow>
+
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/segoe_ui"
+            android:textSize="14dp"
+            ></TextView>
+        <EditText
+            android:id="@+id/edit_emailuser"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#ffff"
+            android:maxLength="500"
+            android:textSize="20dp"/>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary">
+
+        </TableRow>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/edit_ubahbtn"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="UBAH"
+            android:textSize="20dp"
+            android:fontFamily="@font/segoeui_bold"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center"/>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
+

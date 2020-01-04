@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".Laporkan"
+    android:background="@drawable/bg2"
+
+
+    >
+
+
+
+   <ProgressBar
+       android:id="@+id/new_post_progress"
+       android:indeterminate="true"
+       style="?android:attr/progressBarStyleHorizontal"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content" />
+
+   <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    app:cardCornerRadius="5dp"
+    >
+   <ImageView
+       android:id="@+id/ivCameraPreview"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+
+   </ImageView>
+</androidx.cardview.widget.CardView>
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="270dp">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:padding="10dp"
+       >
+   <EditText
+       android:id="@+id/keteranganFoto"
+       android:layout_width="match_parent"
+       android:layout_height="60dp"
+      android:background="#ffff"
+       android:maxLength="500"
+       android:textSize="12dp"
+      android:hint="Tambahkan Keterangan">
+
+   </EditText>
+
+   <TableRow
+
+
+      android:id="@+id/hr"
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:background="@color/colorPrimary">
+
+   </TableRow>
+<TextView
+
+    android:layout_marginTop="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Kategori"
+    android:textSize="16dp"
+    android:fontFamily="@font/segoe_ui"
+    android:textColor="#000"/>
+   <TableRow
+
+
+      android:layout_marginTop="5dp"
+       android:layout_width="match_parent"
+       android:layout_height="1dp"
+       android:background="@color/colorPrimary">
+
+   </TableRow>
+      <androidx.cardview.widget.CardView
+          android:id="@+id/kategori_button"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          app:cardElevation="0dp"
+          >
+   <LinearLayout
+
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:padding="5dp">
+
+      <ImageView
+          android:id="@+id/mini_category"
+          android:layout_width="33dp"
+          android:layout_height="40dp"></ImageView>
+         <TextView
+             android:textColor="#12977C"
+             android:fontFamily="@font/segoe_ui"
+             android:id="@+id/kategori_tittle"
+             android:padding="10dp"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+            android:textSize="14dp"
+             ></TextView>
+
+   </LinearLayout>
+      </androidx.cardview.widget.CardView>
+   <TextView
+
+       android:layout_marginTop="20dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Lokasi"
+       android:textSize="16dp"
+       android:fontFamily="@font/segoe_ui"
+       android:textColor="#000"/>
+
+   <TableRow
+
+
+       android:layout_marginTop="5dp"
+       android:layout_width="match_parent"
+       android:layout_height="1dp"
+       android:background="@color/colorPrimary">
+
+   </TableRow>
+
+   <androidx.cardview.widget.CardView
+       android:layout_marginTop="8dp"
+       android:layout_width="wrap_content"
+       app:cardCornerRadius="20dp"
+       app:cardBackgroundColor="@color/colorPrimary"
+       android:layout_height="wrap_content">
+      <TextView
+          android:id="@+id/lokasi_user"
+          android:padding="5dp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="12dp"
+
+          android:textColor="#FFFF"
+
+          >
+
+
+      </TextView>
+   </androidx.cardview.widget.CardView>
+
+
+
+   </LinearLayout>
+   </ScrollView>
+</LinearLayout>
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_gravity="bottom">
+
+   <Button
+       android:id="@+id/btn_laporkan"
+       android:layout_width="match_parent"
+       android:layout_height="100dp"
+       android:layout_alignParentBottom="true"
+       android:gravity="center"
+       android:text="Submit"
+         android:fontFamily="@font/segoeui_bold"
+       android:textSize="20dp"
+       android:textColor="#FFF"
+       android:background="@color/colorPrimary"
+       >
+
+
+   </Button></RelativeLayout>
+
+</LinearLayout>
+

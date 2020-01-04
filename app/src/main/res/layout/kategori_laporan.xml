@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="#ffff">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pilih Kategori Laporan"
+        android:textSize="20dp"
+        android:textColor="#000"
+        android:fontFamily="@font/segoe_ui"/>
+    <TableRow
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary"/>
+
+
+</LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+
+        >
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/kategori_jalanrusak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="0dp"
+            >
+    <LinearLayout
+
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+
+
+        >
+        <ImageView
+            android:id="@+id/kategori_jalanrusak_p"
+            android:layout_width="60dp"
+            android:src="@drawable/jalan1"
+            android:layout_gravity="center"
+
+            android:layout_height="60dp"></ImageView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Jalan Rusak"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/segoe_ui"
+            android:textSize="12dp"
+            />
+
+    </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        >
+        <androidx.cardview.widget.CardView
+            android:id="@+id/kategori_lampujalanrusak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="0dp"
+            app:cardCornerRadius="0dp">
+        <LinearLayout
+
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+
+
+            >
+            <ImageView
+                android:id="@+id/kategori_lampujalanrusak_p"
+                android:layout_width="60dp"
+                android:src="@drawable/lampujalan2"
+                android:layout_gravity="center"
+
+                android:layout_height="60dp"></ImageView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Lampu Jalan Rusak"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/segoe_ui"
+                android:textSize="12dp"
+                />
+
+        </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/kategori_pohontumbang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="0dp"
+            app:cardCornerRadius="0dp">
+            <LinearLayout
+                android:layout_width="115dp"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+
+
+                >
+                <ImageView
+                    android:id="@+id/kategori_pohontumbang_p"
+                    android:layout_width="60dp"
+                    android:src="@drawable/pohon1"
+                    android:layout_gravity="center"
+
+                    android:layout_height="60dp"></ImageView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="Pohon Tumbang"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/segoe_ui"
+                    android:textSize="12dp"
+                    />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+
+        >
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/kategori_fasilitasumum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="0dp"
+            >
+            <LinearLayout
+
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+
+
+                >
+                <ImageView
+                    android:id="@+id/kategori_fasilitasumum_p"
+                    android:layout_width="60dp"
+                    android:src="@drawable/taman1"
+                    android:layout_gravity="center"
+
+                    android:layout_height="60dp"></ImageView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="Fasilitas Umum"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/segoe_ui"
+                    android:textSize="12dp"
+                    />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        >
+        <androidx.cardview.widget.CardView
+            android:id="@+id/kategori_parkirliar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="0dp"
+            app:cardCornerRadius="0dp">
+            <LinearLayout
+
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+
+
+                >
+                <ImageView
+                    android:id="@+id/kategori_parkirliar_p"
+                    android:layout_width="60dp"
+                    android:src="@drawable/parkir1"
+                    android:layout_gravity="center"
+
+                    android:layout_height="60dp"></ImageView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="Parkir Liar"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/segoe_ui"
+                    android:textSize="12dp"
+                    />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/kategori_lainnya"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="0dp"
+            app:cardCornerRadius="0dp">
+            <LinearLayout
+                android:layout_width="115dp"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+
+
+                >
+                <ImageView
+                    android:id="@+id/kategori_lainnya_p"
+                    android:layout_width="60dp"
+                    android:src="@drawable/lain1"
+                    android:layout_gravity="center"
+
+                    android:layout_height="60dp"></ImageView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="Kategori Lain nya"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/segoe_ui"
+                    android:textSize="12dp"
+                    />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
