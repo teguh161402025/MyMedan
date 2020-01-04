@@ -14,4 +14,10 @@
             <item name="DialogSpotColor">@color/colorPrimary</item>
             <item name="DialogSpotCount">4</item>
         </style>
+    <style name="Custom2" parent="android:Theme.DeviceDefault.Light.Dialog">
+        <item name="DialogTitleAppearance">@android:style/TextAppearance.Medium</item>
+        <item name="DialogTitleText">Mengubah…</item>
+        <item name="DialogSpotColor">@color/colorPrimary</item>
+        <item name="DialogSpotCount">4</item>
+    </style>
 </resources>

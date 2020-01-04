@@ -33,6 +33,7 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import dmax.dialog.SpotsDialog;
 
 public class Editprofil extends AppCompatActivity {
     FirebaseAuth mAuth;
@@ -41,6 +42,7 @@ public class Editprofil extends AppCompatActivity {
     TextView changePhoto;
     Uri pickedImgUrl;
     CardView ubahBtn;
+    int ischangePhoto = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,48 +56,73 @@ public class Editprofil extends AppCompatActivity {
         final EditText namaUser = (EditText)findViewById(R.id.edit_namauser);
         final EditText emailUser = (EditText)findViewById(R.id.edit_emailuser);
         namaUser.setText(currentUser.getDisplayName());
+        emailUser.setText(currentUser.getEmail());
         ubahBtn = findViewById(R.id.edit_ubahbtn);
         ubahBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                new SpotsDialog.Builder()
+                        .setContext(Editprofil.this)
+                        .setTheme(R.style.Custom2)
 
+                        .build()
+                        .show();
                 final String name = namaUser.getText().toString();
                 final String email = emailUser.getText().toString();
+                    currentUser.updateEmail(emailUser.getText().toString());
+                if (ischangePhoto < 1) {
+                    StorageReference mStorage = FirebaseStorage.getInstance().getReference().child("users_photo");
+                    final StorageReference imageFilePath = mStorage.child(pickedImgUrl.getLastPathSegment());
 
-                StorageReference mStorage = FirebaseStorage.getInstance().getReference().child("users_photo");
-                final StorageReference imageFilePath = mStorage.child(pickedImgUrl.getLastPathSegment());
-                imageFilePath.putFile(pickedImgUrl).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    imageFilePath.putFile(pickedImgUrl).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                        imageFilePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                            @Override
-                            public void onSuccess(Uri uri) {
-                                UserProfileChangeRequest profileUpdate = new UserProfileChangeRequest.Builder()
-                                       .setDisplayName(name)
+                            imageFilePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    UserProfileChangeRequest profileUpdate = new UserProfileChangeRequest.Builder()
 
-                                        .setPhotoUri(uri)
-                                        .build();
+                                            .setPhotoUri(uri)
+                                            .setDisplayName(name)
+                                            .build();
 
-                                currentUser.updateEmail(email);
-                                currentUser.updateProfile(profileUpdate)
-                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if(task.isSuccessful()){
-                                                   showMassage("berhasil Di Ubah");
-                                                    updateUI();
+                                    currentUser.updateEmail(email);
+                                    currentUser.updateProfile(profileUpdate)
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if (task.isSuccessful()) {
+                                                        showMassage("berhasil Di Ubah");
+                                                        updateUI();
+                                                    }
                                                 }
-                                            }
-                                        });
-                            }
-                        });
+                                            });
+                                }
+                            });
 
-                    }
-                });
-
+                        }
+                    });
 
 
+                }
+                else{
+                    UserProfileChangeRequest profileUpdate = new UserProfileChangeRequest.Builder()
+                            .setDisplayName(name)
+                            .build();
+
+                    //mAuth.signInWithEmailAndPassword(email,currentUser.)
+                    currentUser.updateProfile(profileUpdate)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        showMassage("berhasil Di Ubah");
+                                        updateUI();
+                                    }
+                                }
+                            });
+                }
 
 
 
@@ -169,6 +196,7 @@ public class Editprofil extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 pickedImgUrl =  result.getUri();
                 userImg.setImageURI(pickedImgUrl);
+                ischangePhoto = 0;
 
 
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {

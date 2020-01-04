@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,12 +27,27 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar loginProgress;
     private FirebaseAuth mAuth;
     private Intent HomeActivity;
-    private ImageView loginPhoto;
+
+    private Button register;
+    RelativeLayout rellay1, rellay2;
+
+    Handler handler = new Handler();
+    Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            rellay1.setVisibility(View.VISIBLE);
+            rellay2.setVisibility(View.VISIBLE);
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        rellay1 = (RelativeLayout) findViewById(R.id.rellay1);
+        rellay2 = (RelativeLayout) findViewById(R.id.rellay2);
+
+        handler.postDelayed(runnable, 2000); //2000 is the timeout for the splash
 
         userMail = findViewById(R.id.login_mail);
         userPassword = findViewById(R.id.login_password);
@@ -38,8 +55,8 @@ public class LoginActivity extends AppCompatActivity {
         loginProgress = findViewById(R.id.login_progress);
         mAuth = FirebaseAuth.getInstance();
         HomeActivity = new Intent(this,com.example.mymedan.MainActivity.class);
-        loginPhoto = findViewById(R.id.login_photo);
-        loginPhoto.setOnClickListener(new View.OnClickListener() {
+        register = findViewById(R.id.registernow);
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
