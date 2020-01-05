@@ -97,15 +97,15 @@ public class Register extends AppCompatActivity {
                 }
 
                 else{
-                    
+
                     createUSerAccount(email,name,password);
-                    
+
                 }
             }
 
 
 
-    });
+        });
         regbtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -162,33 +162,34 @@ public class Register extends AppCompatActivity {
     }
 
     private void createUSerAccount(String email, final String name, String password) {
-    mAuth.createUserWithEmailAndPassword(email,password)
-            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
-                        showMassage("Account Create");
-                        register.setVisibility(View.GONE);
-                        register2.setVisibility(View.VISIBLE);
-                        loadingProgress.setVisibility(View.INVISIBLE);
+        mAuth.createUserWithEmailAndPassword(email,password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            showMassage("Account Create");
+                            register.setVisibility(View.GONE);
+                            register2.setVisibility(View.VISIBLE);
+                            loadingProgress2.setVisibility(View.INVISIBLE);
+                        }
+
+                        else {
+                            showMassage("Account Creation Failed"+ task.getException().getMessage());
+                            regbtn.setVisibility(View.VISIBLE);
+                            loadingProgress.setVisibility(View.INVISIBLE);
+                        }
                     }
 
-                    else {
-                        showMassage("Account Creation Failed"+ task.getException().getMessage());
-                        regbtn.setVisibility(View.VISIBLE);
-                        loadingProgress.setVisibility(View.INVISIBLE);
-                    }
-                }
-
-            });
+                });
 
     }
 
     private void updateUserInfo(final String name, Uri pickedImgUrl, final String phone, final String adress, final FirebaseUser currentUser) {
 
-        StorageReference mStorage = FirebaseStorage.getInstance().getReference().child("users_photo");
-        final StorageReference imageFilePath = mStorage.child(pickedImgUrl.getLastPathSegment());
+
         if(ischangePhoto < 1) {
+            StorageReference mStorage = FirebaseStorage.getInstance().getReference().child("users_photo");
+            final StorageReference imageFilePath = mStorage.child(pickedImgUrl.getLastPathSegment());
             imageFilePath.putFile(pickedImgUrl).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -271,8 +272,8 @@ public class Register extends AppCompatActivity {
 
     private void updateUI() {
 
-        Intent homeActivity =new Intent(getApplicationContext(),MainActivity.class);
-        startActivity(homeActivity);
+        Intent intent =new Intent(getApplicationContext(),VerifyEmail.class);
+        startActivity(intent);
         finish();
     }
 
@@ -301,7 +302,7 @@ public class Register extends AppCompatActivity {
     private void checkAndRequestForPermission() {
 
         if (ContextCompat.checkSelfPermission(Register.this, Manifest.permission.READ_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED){
+                != PackageManager.PERMISSION_GRANTED){
             if(ActivityCompat.shouldShowRequestPermissionRationale(Register.this ,Manifest.permission.READ_EXTERNAL_STORAGE))
 
                 Toast.makeText(Register.this ,"Please Accept For Required Permission",Toast.LENGTH_SHORT).show();

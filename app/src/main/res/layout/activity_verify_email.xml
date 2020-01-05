@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VerifyEmail"
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
+<LinearLayout
+    android:padding="20dp"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/emailT"
+        android:background="@drawable/reg_edittext_style"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
+    <Button
+        android:fontFamily="@font/segoe_ui"
+        android:textSize="14dp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:text="Verifikasi Email"
+        android:id="@+id/btn_feriv"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/reg_btn_style"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"></Button>
+
+</LinearLayout>
+
+<ImageView
+    app:srcCompat="@drawable/citybackg"
+    android:layout_width="match_parent"
+    android:layout_gravity="bottom"
+    android:layout_weight="0.1"
+    android:layout_height="100dp"></ImageView>
+</LinearLayout>

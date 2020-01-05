@@ -37,7 +37,18 @@ public class UpdateApdater extends FirestoreRecyclerAdapter<histori,UpdateApdate
         holder.textViewLokasi.setText(model.getLokasi());
         holder.textViewkategori.setText(model.getKategori_laporan());
         holder.textViewdeskripsi.setText("Laporan anda pada ,"+currentDateandTime+" ,"+model.getStatus_laporan());
-        holder.textViewstatus_laporan.setText(model.getStatus_laporan());
+        if (model.getStatus_laporan().equals("Belum Ditangani") ){
+
+            Picasso.get().load(R.drawable.belum).into( holder.imgstatus_laporan);
+        }
+        else if (model.getStatus_laporan().equals("Sedang Ditangani") ){
+            Picasso.get().load(R.drawable.sedang).into( holder.imgstatus_laporan);
+
+        }
+        else {
+            Picasso.get().load(R.drawable.sudah).into( holder.imgstatus_laporan);
+        }
+
     }
 
     @NonNull
@@ -53,14 +64,14 @@ public class UpdateApdater extends FirestoreRecyclerAdapter<histori,UpdateApdate
        TextView textViewLokasi;
         TextView textViewkategori;
         TextView textViewdeskripsi;
-        TextView textViewstatus_laporan;
+        ImageView imgstatus_laporan;
         public UpdateHolder(@NonNull View itemView) {
             super(itemView);
             imgimage_url = itemView.findViewById(R.id.img_update);
             textViewLokasi = itemView.findViewById(R.id.text_update_lokasi);
             textViewkategori = itemView.findViewById(R.id.text_update_kategori);
             textViewdeskripsi = itemView.findViewById(R.id.text_update);
-            textViewstatus_laporan = itemView.findViewById(R.id.laporan_status);
+            imgstatus_laporan = itemView.findViewById(R.id.laporan_status);
 
         }
     }

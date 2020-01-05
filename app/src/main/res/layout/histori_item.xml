@@ -44,18 +44,19 @@
                     android:textSize="12dp"
                     android:textColor="#ffff"
                     android:padding="5dp"
-                    android:layout_width="150dp"
+                    android:layout_width="200dp"
                     android:layout_height="30dp"
                     app:layout_constraintBottom_toBottomOf="@+id/laporan_photo" />
 
-    <TextView
+    <ImageView
         android:id="@+id/status_laporan"
         android:layout_width="150dp"
         android:layout_height="30dp"
-        android:layout_marginLeft="95dp"
+        android:layout_gravity="right"
+        android:layout_weight="0.1"
         android:padding="5dp"
         android:textColor="#ffff"
-        android:textSize="12dp"
+
         app:layout_constraintBottom_toBottomOf="@+id/laporan_photo" />
 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -77,9 +78,9 @@
                     android:id="@+id/waktu_lokasi_laporan"
                     android:layout_width="150dp"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="35dp"
+                    android:layout_weight="0.1"
                     android:padding="5dp"
-
+                    android:layout_gravity="right"
                     android:textColor="#000"
                     android:textSize="10dp" />
 

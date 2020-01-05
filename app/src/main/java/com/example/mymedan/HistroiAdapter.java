@@ -37,7 +37,19 @@ public class HistroiAdapter extends FirestoreRecyclerAdapter<histori, HistroiAda
         holder.textViewLokasi.setText(model.getLokasi());
         holder.textViewkategori.setText(model.getKategori_laporan());
         holder.textViewdeskripsi.setText(model.getDeskripsi());
-        holder.textViewstatus_laporan.setText(model.getStatus_laporan());
+        if (model.getStatus_laporan().equals("Belum Ditangani") ){
+
+            Picasso.get().load(R.drawable.belum).into( holder.imgstatus_laporan);
+        }
+        else if (model.getStatus_laporan().equals("Sedang Ditangani") ){
+            Picasso.get().load(R.drawable.sedang).into( holder.imgstatus_laporan);
+
+        }
+        else {
+            Picasso.get().load(R.drawable.sudah).into( holder.imgstatus_laporan);
+        }
+
+
         holder.textViewtanggal.setText(currentDateandTime);
     }
 
@@ -54,7 +66,7 @@ public class HistroiAdapter extends FirestoreRecyclerAdapter<histori, HistroiAda
         TextView textViewLokasi;
         TextView textViewkategori;
         TextView textViewdeskripsi;
-        TextView textViewstatus_laporan;
+        ImageView imgstatus_laporan;
         TextView textViewtanggal;
 
         public HistoriHolder(@NonNull View itemView) {
@@ -63,7 +75,7 @@ public class HistroiAdapter extends FirestoreRecyclerAdapter<histori, HistroiAda
             textViewLokasi = itemView.findViewById(R.id.lokasi_laporan);
             textViewkategori = itemView.findViewById(R.id.kategori_laporan);
             textViewdeskripsi = itemView.findViewById(R.id.deskripsi_laporan);
-            textViewstatus_laporan = itemView.findViewById(R.id.status_laporan);
+            imgstatus_laporan = itemView.findViewById(R.id.status_laporan);
             textViewtanggal = itemView.findViewById(R.id.waktu_lokasi_laporan);
 
 

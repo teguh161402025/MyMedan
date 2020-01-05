@@ -45,7 +45,7 @@
                     android:layout_height="80dp"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/mymedan_logowhite" />
+                    app:srcCompat="@drawable/mymedan_logowhite" />
 
 
                 <ImageView
@@ -63,7 +63,7 @@
                     android:layout_toEndOf="@+id/login_photo"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/mymedanwhitefont" />
+                    app:srcCompat="@drawable/mymedanwhitefont" />
             </LinearLayout>
             <TextView
                 android:id="@+id/tv_login"
@@ -236,7 +236,7 @@
                 android:background="@drawable/et_bg"
                 android:fontFamily="sans-serif-light"
                 android:hint="Alamat"
-                android:inputType="textPassword"
+
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:textColor="@color/white"
