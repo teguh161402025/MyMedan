@@ -1,4 +1,4 @@
 # MyMedan
-#Tugas Besar Pemograman Mobile
-#Teguh Kirana Berutu 161402025
-#Credicio Redemtus Shihombing 161402076
+#Tugas Besar Pemograman Mobile/n
+#Teguh Kirana Berutu 161402025/n
+#Credicio Redemtus Shihombing 161402076/n
