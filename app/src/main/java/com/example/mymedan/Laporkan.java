@@ -36,6 +36,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -107,6 +110,8 @@ public class Laporkan extends AppCompatActivity implements EasyPermissions.Permi
     FirebaseAuth mAuth;
     private String lokasi;
     private String lokasi_street;
+    int PLACE_PICKER_REQUEST = 1;
+    CardView map;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -158,6 +163,9 @@ public class Laporkan extends AppCompatActivity implements EasyPermissions.Permi
             }
         };
 
+
+
+
         if (Build.VERSION.SDK_INT >= 23) {
             Log.d("mylog", "Getting Location Permission");
             if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -176,6 +184,10 @@ public class Laporkan extends AppCompatActivity implements EasyPermissions.Permi
         newPostProgress.setVisibility(View.INVISIBLE);
 
         final EditText deskripsi = (EditText)findViewById(R.id.keteranganFoto);
+
+
+
+
         btnLaporkan= findViewById(R.id.btn_laporkan);
         btnLaporkan.setOnClickListener(new View.OnClickListener() {
 
@@ -184,7 +196,6 @@ public class Laporkan extends AppCompatActivity implements EasyPermissions.Permi
                 new SpotsDialog.Builder()
                         .setContext(Laporkan.this)
                         .setTheme(R.style.Custom)
-
                         .build()
                         .show();
                 final String randomName = UUID.randomUUID().toString();
@@ -388,19 +399,9 @@ public class Laporkan extends AppCompatActivity implements EasyPermissions.Permi
             ivCameraPreview = findViewById(R.id.ivCameraPreview);
 
 
-            if (bitmap.getWidth() > bitmap.getHeight()) {
-                Bitmap bOutput;
-                float degrees = 90;//rotation degree
-                Matrix matrix = new Matrix();
-                matrix.setRotate(degrees);
-                bOutput = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-                ivCameraPreview.setImageBitmap(bOutput);
 
-            }
-            else
-            {
                 ivCameraPreview.setImageBitmap(bitmap);
-            }
+
 
 
 

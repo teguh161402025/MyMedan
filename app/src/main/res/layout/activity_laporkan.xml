@@ -50,18 +50,19 @@
        android:orientation="vertical"
        android:padding="10dp"
        >
-   <EditText
-       android:id="@+id/keteranganFoto"
-       android:layout_width="match_parent"
-       android:layout_height="60dp"
-      android:background="#ffff"
-       android:maxLength="500"
-       android:textSize="12dp"
-      android:hint="Tambahkan Keterangan">
 
-   </EditText>
+      <EditText
+          android:id="@+id/keteranganFoto"
+          android:layout_width="match_parent"
+          android:layout_height="60dp"
+          android:background="#ffff"
+          android:hint="Tambahkan Keterangan"
+          android:maxLength="500"
+          android:textSize="12dp">
 
-   <TableRow
+      </EditText>
+
+      <TableRow
 
 
       android:id="@+id/hr"
@@ -170,7 +171,7 @@
    <Button
        android:id="@+id/btn_laporkan"
        android:layout_width="match_parent"
-       android:layout_height="100dp"
+       android:layout_height="50dp"
        android:layout_alignParentBottom="true"
        android:gravity="center"
        android:text="Submit"

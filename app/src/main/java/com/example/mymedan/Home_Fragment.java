@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,6 +40,8 @@ public class Home_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         CardView btnlaporkan = (CardView) view.findViewById(R.id.btnlaporkan);
+        CardView btnhelp = (CardView) view.findViewById(R.id.button_help);
+        CardView btninbox = (CardView) view.findViewById(R.id.button_inbox);
         btnlaporkan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,9 +51,29 @@ public class Home_Fragment extends Fragment {
 
 
             }
+        }); btnhelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+               showMessage("Silahkan Klik Laporan Untuk Melapor");
+
+
+            }
+        }); btninbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                showMessage("Belum Tersedia");
+
+
+            }
         });
         return view;
     }
 
+    private void showMessage(String text) {
+
+        Toast.makeText(getContext(),text,Toast.LENGTH_LONG).show();
+    }
 
 }

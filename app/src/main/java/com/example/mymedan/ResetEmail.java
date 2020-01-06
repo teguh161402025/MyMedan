@@ -16,6 +16,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import dmax.dialog.SpotsDialog;
+
 public class ResetEmail extends AppCompatActivity {
     FirebaseUser currentUser;
     FirebaseAuth mAuth;
@@ -35,6 +37,12 @@ public class ResetEmail extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                new SpotsDialog.Builder()
+                        .setContext(ResetEmail.this)
+                        .setTheme(R.style.Custom)
+
+                        .build()
+                        .show();
                 mAuth
                         .signInWithEmailAndPassword(currentUser.getEmail(), field.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override

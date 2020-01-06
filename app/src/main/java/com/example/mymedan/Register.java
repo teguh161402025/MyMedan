@@ -45,6 +45,7 @@ public class Register extends AppCompatActivity {
     static int PReqCode = 1;
     static int REQUESCODE = 1;
     Uri pickedImgUrl;
+    int ischangePhoto = 1;
     private EditText userEmail,userPassword,userPassword2,userName,userPhone,userAddres;
     private ProgressBar loadingProgress,loadingProgress2;
     private Button regbtn;
@@ -54,7 +55,7 @@ public class Register extends AppCompatActivity {
     FirebaseUser currentUser;
     ConstraintLayout register,register2;
     private FirebaseAuth mAuth;
-    int ischangePhoto = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,8 +112,8 @@ public class Register extends AppCompatActivity {
         regbtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                regbtn2.setVisibility(View.VISIBLE);
-                loadingProgress2.setVisibility(View.INVISIBLE);
+                regbtn2.setVisibility(View.INVISIBLE);
+                loadingProgress2.setVisibility(View.VISIBLE);
 
                 final String name = userName.getText().toString();
                 final String phone =userPhone.getText().toString();
