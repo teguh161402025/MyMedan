@@ -49,6 +49,27 @@ public class UpdateApdater extends FirestoreRecyclerAdapter<histori,UpdateApdate
             Picasso.get().load(R.drawable.sudah).into( holder.imgstatus_laporan);
         }
 
+        if (model.getKategori_laporan().equals("Jalan Rusak") ){
+
+            Picasso.get().load(R.drawable.jalan1).into( holder.imgkategori_laporan);
+        }
+        else if (model.getKategori_laporan().equals("Lampu Jalan Rusak") ){
+            Picasso.get().load(R.drawable.lampujalan2).into( holder.imgkategori_laporan);
+
+        }else if (model.getKategori_laporan().equals("Pohon Tumbang") ){
+            Picasso.get().load(R.drawable.pohon1).into( holder.imgkategori_laporan);
+
+        }else if (model.getKategori_laporan().equals("Fasilitas Umum") ){
+            Picasso.get().load(R.drawable.taman1).into( holder.imgkategori_laporan);
+
+        }else if (model.getKategori_laporan().equals("Parkir Liar") ){
+            Picasso.get().load(R.drawable.parkir1).into( holder.imgkategori_laporan);
+
+        }
+        else {
+            Picasso.get().load(R.drawable.lain1).into( holder.imgkategori_laporan);
+        }
+
     }
 
     @NonNull
@@ -65,6 +86,7 @@ public class UpdateApdater extends FirestoreRecyclerAdapter<histori,UpdateApdate
         TextView textViewkategori;
         TextView textViewdeskripsi;
         ImageView imgstatus_laporan;
+        ImageView imgkategori_laporan;
         public UpdateHolder(@NonNull View itemView) {
             super(itemView);
             imgimage_url = itemView.findViewById(R.id.img_update);
@@ -72,6 +94,7 @@ public class UpdateApdater extends FirestoreRecyclerAdapter<histori,UpdateApdate
             textViewkategori = itemView.findViewById(R.id.text_update_kategori);
             textViewdeskripsi = itemView.findViewById(R.id.text_update);
             imgstatus_laporan = itemView.findViewById(R.id.laporan_status);
+            imgkategori_laporan = itemView.findViewById(R.id.img_update_kategori);
 
         }
     }

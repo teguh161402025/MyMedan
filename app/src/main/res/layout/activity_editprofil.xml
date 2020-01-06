@@ -76,16 +76,41 @@
 
 
         <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alamat"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/segoe_ui"
+        android:textSize="14dp"
+        ></TextView>
+        <EditText
+            android:id="@+id/edit_adressuser"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#ffff"
+            android:maxLength="500"
+            android:textSize="20dp"/>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary">
+
+        </TableRow>
+
+        <TextView
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email"
+            android:text="Telepon"
             android:textColor="@color/colorPrimary"
             android:fontFamily="@font/segoe_ui"
             android:textSize="14dp"
             ></TextView>
         <EditText
-            android:id="@+id/edit_emailuser"
+            android:id="@+id/edit_telpuser"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="#ffff"
@@ -101,24 +126,65 @@
         </TableRow>
     </LinearLayout>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/edit_ubahbtn"
-        android:layout_gravity="bottom"
-        android:layout_width="match_parent"
-        app:cardCornerRadius="0dp"
-        app:cardElevation="0dp"
-        android:layout_height="50dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+    <TableRow
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary">
+
+    </TableRow>
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/segoe_ui"
+        android:textSize="14dp"
+        ></TextView>
+    <TextView
+        android:id="@+id/edit_emailuser"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffff"
+        android:maxLength="500"
+        android:textSize="20dp"/>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary">
+
+    </TableRow>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_gravity="center|bottom"
+        android:layout_height="wrap_content">
+    <Button
+        android:layout_weight="1"
+        android:id="@+id/edit_ubahbtn"
+        android:layout_gravity="center_horizontal"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="50dp"
+
+          android:background="@color/colorPrimary"
+
             android:text="UBAH"
             android:textSize="20dp"
             android:fontFamily="@font/segoeui_bold"
-            android:textColor="@color/colorPrimary"
-            android:gravity="center"/>
+            android:textColor="@color/white">
 
-    </androidx.cardview.widget.CardView>
 
+    </Button>
+    </LinearLayout>
 </LinearLayout>
 

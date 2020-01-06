@@ -212,7 +212,7 @@ public class Laporkan extends AppCompatActivity implements EasyPermissions.Permi
                                     String pelapor = currentUser.getDisplayName();
                                     String email = currentUser.getEmail();
                                     String lokasiLaporan = lokasi;
-                                    String lokasi_jalan = lokasi_street;
+                                    String lokasi_jalan = lokasi.substring(0,lokasi.indexOf(","));
                                      String keterangan = deskripsi.getText().toString();
 
                                 Map<String, Object> postMap = new HashMap<>();
@@ -304,9 +304,9 @@ public class Laporkan extends AppCompatActivity implements EasyPermissions.Permi
         Geocoder geocoder = new Geocoder(Laporkan.this, Locale.getDefault());
         try {
             List<Address> addresses = geocoder.getFromLocation(myCoordinates.latitude, myCoordinates.longitude, 1);
-            String address = addresses.get(0).getAddressLine(0);
-            myCity = addresses.get(0).getAddressLine(0);
-            street = addresses.get(0).getThoroughfare();
+            Address address = addresses.get(0);
+            // Thoroughfare seems to be the street name without numbers
+          street = address.getLocality();
             Log.d("mylog", "Complete Address: " + addresses.toString());
             Log.d("mylog", "Address: " + address);
 

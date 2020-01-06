@@ -35,9 +35,9 @@ public class VerifyEmail extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
 
                 if (task.isSuccessful()) {
-                    showMassage("berhasil");
+                    showMassage("Periksa Kotak Masuk Email Anda dan Verifikasi Email Anda");
                 } else {
-                    showMassage("gagal");
+                    showMassage("Gagal Mengirim Email Verifikasi");
                 }
             }
         });
@@ -56,7 +56,7 @@ public class VerifyEmail extends AppCompatActivity {
                             finish();
                         }
                         else{
-                            showMassage("harap Verifikasi Email Anda");
+                            showMassage("Periksa Kotak Masuk Email Anda dan Verifikasi Email Anda");
                             currentUser.sendEmailVerification();
                             overridePendingTransition(0, 0);
                             finish();

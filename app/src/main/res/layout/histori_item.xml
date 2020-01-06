@@ -75,6 +75,7 @@
                     android:textSize="12dp" />
 
                 <TextView
+                    android:gravity="right"
                     android:id="@+id/waktu_lokasi_laporan"
                     android:layout_width="150dp"
                     android:layout_height="30dp"

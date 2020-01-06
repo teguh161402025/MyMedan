@@ -15,6 +15,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -32,17 +38,24 @@ import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 import dmax.dialog.SpotsDialog;
 
 public class Editprofil extends AppCompatActivity {
+    private FirebaseFirestore firebaseFirestore;
     FirebaseAuth mAuth;
     FirebaseUser currentUser ;
     CircleImageView userImg;
     TextView changePhoto;
+    TextView email;
     Uri pickedImgUrl;
-    CardView ubahBtn;
+    Button ubahBtn;
     int ischangePhoto = 1;
+    private FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+    private CollectionReference User = firestore.collection("User");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,9 +67,44 @@ public class Editprofil extends AppCompatActivity {
         Picasso.get().load(currentUser.getPhotoUrl()).into( userImg);
 
         final EditText namaUser = (EditText)findViewById(R.id.edit_namauser);
-        final EditText emailUser = (EditText)findViewById(R.id.edit_emailuser);
-        namaUser.setText(currentUser.getDisplayName());
-        emailUser.setText(currentUser.getEmail());
+        final EditText telpUser = (EditText)findViewById(R.id.edit_telpuser);
+        final EditText addressUser = (EditText)findViewById(R.id.edit_adressuser);
+        email = findViewById(R.id.edit_emailuser);
+
+
+
+
+
+
+
+
+        DocumentReference docRef = User.document(currentUser.getUid());
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+
+                    namaUser.setText(currentUser.getDisplayName());
+                    telpUser.setText(document.getString("telepon"));
+                    addressUser.setText(document.getString("alamat"));
+
+                }
+            }
+        });
+
+
+        email.setText(currentUser.getEmail().toString());
+        email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(getApplicationContext(),ResetEmail.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
         ubahBtn = findViewById(R.id.edit_ubahbtn);
         ubahBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,8 +116,8 @@ public class Editprofil extends AppCompatActivity {
                         .build()
                         .show();
                 final String name = namaUser.getText().toString();
-                final String email = emailUser.getText().toString();
-                    currentUser.updateEmail(emailUser.getText().toString());
+               // final String email = emailUser.getText().toString();
+                  //
                 if (ischangePhoto < 1) {
                     StorageReference mStorage = FirebaseStorage.getInstance().getReference().child("users_photo");
                     final StorageReference imageFilePath = mStorage.child(pickedImgUrl.getLastPathSegment());
@@ -87,12 +135,28 @@ public class Editprofil extends AppCompatActivity {
                                             .setDisplayName(name)
                                             .build();
 
-                                    currentUser.updateEmail(email);
+                                    //currentUser.updateEmail(email);
                                     currentUser.updateProfile(profileUpdate)
                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if (task.isSuccessful()) {
+                                                        Map<String, Object> postMap = new HashMap<>();
+                                                        postMap.put("nama",namaUser);
+
+
+                                                        postMap.put("UID",currentUser.getUid());
+                                                        postMap.put("email", currentUser.getEmail());
+                                                        postMap.put("alamat", addressUser);
+
+                                                        postMap.put("telepon",telpUser);
+
+
+
+
+
+
+                                                        firebaseFirestore.collection("User").document(currentUser.getUid()).update(postMap);
                                                         showMassage("berhasil Di Ubah");
                                                         updateUI();
                                                     }

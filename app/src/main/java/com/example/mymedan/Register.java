@@ -49,6 +49,7 @@ public class Register extends AppCompatActivity {
     private ProgressBar loadingProgress,loadingProgress2;
     private Button regbtn;
     private Button regbtn2;
+
     private FirebaseFirestore firebaseFirestore;
     FirebaseUser currentUser;
     ConstraintLayout register,register2;
@@ -75,6 +76,7 @@ public class Register extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
         regbtn = findViewById(R.id.register);
         regbtn2 = findViewById(R.id.register2);
+
         register.setVisibility(View.VISIBLE);
         regbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -204,30 +206,29 @@ public class Register extends AppCompatActivity {
                                     .build();
                             String urlImg = uri.toString();
                             Map<String, Object> postMap = new HashMap<>();
-                            postMap.put("nama",name);
+                            postMap.put("nama",currentUser.getDisplayName());
 
-                            postMap.put("image_url",urlImg);
+                                            postMap.put("image_url",urlImg);
+                                            postMap.put("UID",currentUser.getUid());
+                                            postMap.put("email", currentUser.getEmail());
+                                            postMap.put("alamat", adress);
 
-                            postMap.put("email", currentUser.getEmail().toString());
-                            postMap.put("alamat", adress);
-
-                            postMap.put("telepon",phone);
+                                            postMap.put("telepon",phone);
 
 
-                            //postMap.put("Koordinat",pelapor );
-                            postMap.put("tanggal_bergabung", FieldValue.serverTimestamp());
-                            // postMap.put("latitude", FieldValue.serverTimestamp());
-                            //postMap.put("longitude", FieldValue.serverTimestamp());
 
-                            firebaseFirestore.collection("User").add(postMap);
-                            currentUser.updateProfile(profileUpdate)
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
-                                                showMassage("Register Complete");
-                                                updateUI();
-                                            }
+                                            postMap.put("tanggal_bergabung", FieldValue.serverTimestamp());
+
+
+                                            firebaseFirestore.collection("User").document(currentUser.getUid()).set(postMap);
+                                            currentUser.updateProfile(profileUpdate)
+                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            if (task.isSuccessful()) {
+                                                                showMassage("Register Complete");
+                                                                updateUI();
+                                                            }
                                         }
                                     });
                         }
@@ -242,10 +243,12 @@ public class Register extends AppCompatActivity {
             UserProfileChangeRequest profileUpdate = new UserProfileChangeRequest.Builder()
                     .setDisplayName(name)
                     .build();
+
             Map<String, Object> postMap = new HashMap<>();
             postMap.put("nama",name);
             postMap.put("image_url",uri);
-            postMap.put("email", currentUser.getEmail().toString());
+            postMap.put("UID",currentUser.getUid().toString());
+            postMap.put("email", currentUser.getEmail());
             postMap.put("alamat", adress);
             postMap.put("telepon",phone);
 
@@ -255,7 +258,7 @@ public class Register extends AppCompatActivity {
             // postMap.put("latitude", FieldValue.serverTimestamp());
             //postMap.put("longitude", FieldValue.serverTimestamp());
 
-            firebaseFirestore.collection("User").add(postMap);
+            firebaseFirestore.collection("User").document(currentUser.getUid()).set(postMap);
             currentUser.updateProfile(profileUpdate)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

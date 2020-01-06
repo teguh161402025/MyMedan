@@ -14,6 +14,8 @@
     android:orientation="vertical"
     android:layout_height="wrap_content">
     <TextView
+        android:gravity="center"
+        android:textSize="16dp"
         android:id="@+id/emailT"
         android:background="@drawable/reg_edittext_style"
         android:layout_width="match_parent"

@@ -39,6 +39,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="25dp"
+            android:layout_marginTop="10dp"
            >
 
             <ImageView
@@ -47,19 +48,20 @@
                 android:layout_height="25dp" />
 
             <TextView
+                android:gravity="center"
                 android:id="@+id/text_update_kategori"
                 android:layout_width="150dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="5dp"
                 android:fontFamily="@font/segoe_ui"
-                android:textSize="10dp" />
+                android:textSize="12dp" />
 
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="25dp"
             >
 
             <ImageView
@@ -70,19 +72,22 @@
             <TextView
                 android:id="@+id/text_update_lokasi"
                 android:layout_width="170dp"
-                android:layout_height="35dp"
+                android:layout_height="25dp"
                 android:layout_marginLeft="5dp"
+                android:padding="5dp"
                 android:fontFamily="@font/segoe_ui"
-                android:textSize="10dp" />
+                android:textSize="12dp" />
 
 
         </LinearLayout>
 
         <ImageView
             android:id="@+id/laporan_status"
-            android:layout_width="235dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="10dp"></ImageView>
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:padding="5dp"
+
+            ></ImageView>
 
     </LinearLayout>
 

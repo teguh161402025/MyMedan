@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar loginProgress;
     private FirebaseAuth mAuth;
     private Intent HomeActivity;
-
+    private Button resetPass;
     private Button register;
     RelativeLayout rellay1, rellay2;
 
@@ -48,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         rellay2 = (RelativeLayout) findViewById(R.id.rellay2);
 
         handler.postDelayed(runnable, 2000); //2000 is the timeout for the splash
+        resetPass = findViewById(R.id.btn_resetpass);
 
         userMail = findViewById(R.id.login_mail);
         userPassword = findViewById(R.id.login_password);
@@ -62,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 Intent registerActivity = new Intent(getApplicationContext(),Register.class);
                 startActivity(registerActivity);
-                finish();
+
 
 
             }
@@ -90,6 +91,16 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+
+            }
+        });
+
+
+        resetPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(getApplicationContext(),ForgotPassword.class);
+                startActivity(intent);
 
             }
         });
