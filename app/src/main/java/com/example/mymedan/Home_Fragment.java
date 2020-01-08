@@ -46,7 +46,7 @@ public class Home_Fragment extends Fragment {
                 Log.d("mylog", "Not granted");
                 requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
             }
-        }
+            }
         CardView btnlaporkan = (CardView) view.findViewById(R.id.btnlaporkan);
         CardView btnhelp = (CardView) view.findViewById(R.id.button_help);
         CardView btninbox = (CardView) view.findViewById(R.id.button_inbox);
