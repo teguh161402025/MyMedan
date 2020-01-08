@@ -2,9 +2,11 @@ package com.example.mymedan;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -38,7 +40,13 @@ public class Home_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
+        if (Build.VERSION.SDK_INT >= 23) {
+            Log.d("mylog", "Getting Location Permission");
+            if (getActivity().checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                Log.d("mylog", "Not granted");
+                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+            }
+        }
         CardView btnlaporkan = (CardView) view.findViewById(R.id.btnlaporkan);
         CardView btnhelp = (CardView) view.findViewById(R.id.button_help);
         CardView btninbox = (CardView) view.findViewById(R.id.button_inbox);
