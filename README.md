@@ -10,3 +10,6 @@ Dirawati Sianturi 161402070,
 Runggu cari Sianturi 161402069.
 
 Michael yafda Marbun 161402103,
+
+NB:Saat Memfoto sebaiknya landscape
+NB:Email Ferivikasi Ada pada bagian Promosi jadi cek pada bagian promosi
